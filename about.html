@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Nebraska Institute of Technology</title>
+  <meta name="description" content="NIT teaches electronics at the component level. Understand control boards, circuit analysis, failure diagnostics, and the precise engineering inside every appliance.">
+  <meta property="og:title" content="About — Nebraska Institute of Technology">
+  <meta property="og:description" content="Deep electronics training. Understand what's inside the machines the world depends on.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nebnit.com/about.html">
+  <link rel="canonical" href="https://nebnit.com/about.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body x-data>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="nav-logo" aria-label="NIT Home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        NIT
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" @click="$store.nav.toggle()" :aria-expanded="$store.nav.open" aria-controls="mobile-nav" aria-label="Toggle menu">
+        <svg x-show="!$store.nav.open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg x-show="$store.nav.open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x-cloak><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" :class="{ 'open': $store.nav.open }" aria-label="Mobile navigation">
+      <a href="index.html" @click="$store.nav.close()">Home</a>
+      <a href="about.html" class="active" @click="$store.nav.close()">About</a>
+      <a href="contact.html" @click="$store.nav.close()">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main id="main">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>About Nebraska Institute of Technology</h1>
+        <p>Electronics are in everything we depend on. We don't teach you how to replace a part on a machine — we show you how to look inside it. One component. Precise. Delicate. Complex. That's where the real understanding begins.</p>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="section" aria-labelledby="philosophy-heading">
+      <div class="container about-content animate-on-scroll">
+        <h2 id="philosophy-heading">Electronics Are the Foundation of Everything</h2>
+        <p>Open any appliance built in the last twenty years and you'll find electronics at its core. A modern washing machine doesn't just fill and spin — it's governed by a microcontroller-driven control board that manages motor speed through variable frequency drives, reads water temperature through thermistor circuits, monitors drum load via current-sensing resistors, and communicates fault codes through LED multiplexing or digital displays. Every one of those functions relies on discrete electronic components working within precise parameters.</p>
+        <p>Most training teaches you to pull that board and order a new one. We think that's a waste. That board is full of components you can understand, test, and repair: capacitors that filter and store energy, transistors and MOSFETs that switch high-current loads, relays that bridge control logic to power circuits, voltage regulators that keep sensitive ICs within operating range, and trace networks that route signals across multi-layer PCBs.</p>
+        <p>NIT exists to show you what's inside. When a dryer stops heating, we don't just point to the element — we walk you through the relay that switches it, the triac that controls it, the thermistor circuit that regulates it, and the control board logic that ties it all together. You learn how one small component, working in precise and delicate ways, can bring an entire system down — and how to bring it back.</p>
+      </div>
+    </section>
+
+    <!-- Partnership -->
+    <section class="section section-alt" aria-labelledby="partnership-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="partnership-heading">Built on Real-World Experience</h2>
+          <p>NIT operates in partnership with Metro TV and Appliance Service.</p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card animate-on-scroll">
+            <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <div>
+              <h3>Real Equipment, Real Failures</h3>
+              <p>You train on actual appliances with actual faults — not simulations. Every board you examine has a real history and a real problem to solve.</p>
+            </div>
+          </div>
+          <div class="benefit-card animate-on-scroll">
+            <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <div>
+              <h3>Industry-Standard Parts Access</h3>
+              <p>Components and parts come through Metro TV's parts department — the same supply chain used in professional service work.</p>
+            </div>
+          </div>
+          <div class="benefit-card animate-on-scroll">
+            <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div>
+              <h3>Supervised Lab Environment</h3>
+              <p>Every hands-on session is guided by experienced professionals. You work at your own pace with support when you need it.</p>
+            </div>
+          </div>
+          <div class="benefit-card animate-on-scroll">
+            <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            <div>
+              <h3>Progressive Depth</h3>
+              <p>Start with safety and fundamentals. Build through orientation, maintenance, and servicing. End with advanced diagnostics and special projects on complex systems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What You Learn (detailed technical) -->
+    <section class="section" aria-labelledby="learn-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="learn-heading">What You'll Learn</h2>
+          <p>A deeper look at the technical knowledge NIT training builds.</p>
+        </div>
+
+        <div class="accordion" x-data="{ openItem: null }">
+          <!-- Electrical Fundamentals -->
+          <div class="accordion-item animate-on-scroll">
+            <button class="accordion-trigger" @click="openItem = openItem === 1 ? null : 1" :aria-expanded="openItem === 1" aria-controls="topic-1">
+              <span>Electrical Fundamentals and Circuit Analysis</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="topic-1" x-show="openItem === 1" x-collapse x-cloak class="accordion-panel">
+              <p>Before you can diagnose a failed component, you need to understand how electricity behaves. We cover voltage, current, resistance, and power — not as abstract formulas, but as measurable properties you'll observe in live circuits. You'll learn Ohm's law by measuring real loads. You'll understand the difference between AC and DC behavior in appliance circuits, how household 120V and 240V systems are wired, and how to safely work with both.</p>
+              <p>From there, we move into series and parallel circuits, voltage dividers, current limiting, and the behavior of reactive components (capacitors and inductors) in AC circuits. You'll understand impedance, phase relationships, and why a motor start capacitor has a specific microfarad rating — not just what rating to order.</p>
+            </div>
+          </div>
+
+          <!-- Component Identification -->
+          <div class="accordion-item animate-on-scroll">
+            <button class="accordion-trigger" @click="openItem = openItem === 2 ? null : 2" :aria-expanded="openItem === 2" aria-controls="topic-2">
+              <span>Component Identification and Failure Analysis</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="topic-2" x-show="openItem === 2" x-collapse x-cloak class="accordion-panel">
+              <p>We go component by component. Resistors — carbon film, metal film, wirewound, fusible — and how each type fails differently. Capacitors — electrolytic, ceramic, film — and why an electrolytic cap near a heat source is a ticking clock. Diodes, rectifiers, and how a single shorted diode in a bridge rectifier changes the entire output waveform. Transistors and MOSFETs — how they switch, how they amplify, and what thermal runaway looks like on a board.</p>
+              <p>You'll learn to read component markings, decode color bands, interpret SMD codes, and visually identify common failure modes: bulging caps, cracked solder joints, heat-discolored resistors, and burned traces. Then you'll confirm what your eyes see with a multimeter, ESR meter, and oscilloscope.</p>
+            </div>
+          </div>
+
+          <!-- Schematics and PCB -->
+          <div class="accordion-item animate-on-scroll">
+            <button class="accordion-trigger" @click="openItem = openItem === 3 ? null : 3" :aria-expanded="openItem === 3" aria-controls="topic-3">
+              <span>Schematic Reading and PCB Trace Analysis</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="topic-3" x-show="openItem === 3" x-collapse x-cloak class="accordion-panel">
+              <p>A schematic is a map of how a circuit thinks. We teach you to read them — following signal flow from input to output, identifying power supply stages, control logic sections, and output driver circuits. You'll learn standard symbols, reference designators, and how to cross-reference a schematic to the physical layout of a PCB.</p>
+              <p>On the board itself, you'll trace copper pathways, identify power planes and signal traces, understand via connections between layers, and locate test points for measurement. When a trace is burned or a pad is lifted, you'll know how to repair it. When a schematic isn't available, you'll learn to reverse-engineer a circuit by following traces and identifying component functions from their placement and values.</p>
+            </div>
+          </div>
+
+          <!-- Control Systems -->
+          <div class="accordion-item animate-on-scroll">
+            <button class="accordion-trigger" @click="openItem = openItem === 4 ? null : 4" :aria-expanded="openItem === 4" aria-controls="topic-4">
+              <span>Control Systems in Home Appliances</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="topic-4" x-show="openItem === 4" x-collapse x-cloak class="accordion-panel">
+              <p>Modern appliances are embedded systems. A refrigerator's main board reads thermistor inputs, drives compressor relays through transistor switching stages, manages defrost cycles with timed logic, and controls fan motors and damper actuators — all coordinated by a microcontroller running firmware. We break down each of these subsystems.</p>
+              <p>You'll study how sensor circuits convert physical measurements (temperature, pressure, position) into electrical signals. How those signals are conditioned, filtered, and read by control logic. How output stages amplify low-power control signals to drive high-current loads like compressor motors, heating elements, and solenoid valves. Across washers, dryers, dishwashers, ranges, refrigerators, freezers, microwave ovens, and ice machines — every appliance becomes a case study in applied electronics.</p>
+            </div>
+          </div>
+
+          <!-- Diagnostic Equipment -->
+          <div class="accordion-item animate-on-scroll">
+            <button class="accordion-trigger" @click="openItem = openItem === 5 ? null : 5" :aria-expanded="openItem === 5" aria-controls="topic-5">
+              <span>Diagnostic Equipment and Measurement Technique</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="topic-5" x-show="openItem === 5" x-collapse x-cloak class="accordion-panel">
+              <p>Your multimeter is your most important tool, and most people only use a fraction of it. We cover DC and AC voltage measurement, resistance and continuity testing, diode check mode, capacitance measurement, and current measurement — including when and how to use a clamp meter for non-invasive current readings on live appliance circuits.</p>
+              <p>Beyond the multimeter, we introduce ESR (equivalent series resistance) testing for in-circuit capacitor evaluation, and oscilloscope use for observing waveforms — PWM signals from motor controllers, rectified AC from power supplies, and switching transients from relay contacts. You'll learn what a healthy signal looks like and what a failing circuit shows you before it goes completely dead.</p>
+            </div>
+          </div>
+
+          <!-- Safety -->
+          <div class="accordion-item animate-on-scroll">
+            <button class="accordion-trigger" @click="openItem = openItem === 6 ? null : 6" :aria-expanded="openItem === 6" aria-controls="topic-6">
+              <span>Safety, Shop Practices, and Professional Standards</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="topic-6" x-show="openItem === 6" x-collapse x-cloak class="accordion-panel">
+              <p>Electronics work is precise, and it can be dangerous. We start every student with thorough safety training: lockout/tagout procedures, safe discharge of capacitors (including high-voltage caps in microwave oven circuits), proper grounding practices, and the physiological effects of electrical shock. You'll learn to respect stored energy — a charged capacitor in a microwave magnetron circuit holds enough energy to be lethal even after the unit is unplugged.</p>
+              <p>We also cover proper use of hand tools, soldering and desoldering technique, ESD (electrostatic discharge) precautions when handling sensitive semiconductor components, and shop organization for safe and efficient work. All training takes place in a supervised lab environment in partnership with Metro TV and Appliance Service.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Look Deeper?</h2>
+        <p>Get in touch to learn about enrollment and how NIT can teach you to see electronics the way they were designed to be understood.</p>
+        <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="NIT Home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            NIT
+          </a>
+          <p>Nebraska Institute of Technology — electronics training that goes deeper, in partnership with Metro TV and Appliance Service.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="mailto:service@metrotv-audiotech.com">service@metrotv-audiotech.com</a>
+          <a href="https://nebnit.com">nebnit.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nebraska Institute of Technology. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
