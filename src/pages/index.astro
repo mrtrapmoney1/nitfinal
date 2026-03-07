@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://nebnit.com/#organization",
+      "name": "Nebraska Institute of Technology",
+      "alternateName": "NIT",
+      "url": "https://nebnit.com",
+      "description": "Nebraska Institute of Technology teaches electronics at the component level — control boards, circuit analysis, failure diagnostics, and the precise engineering inside every appliance.",
+      "email": "service@metrotv-audiotech.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Omaha", "addressRegion": "NE", "addressCountry": "US" },
+      "areaServed": { "@type": "State", "name": "Nebraska" },
+      "knowsAbout": ["Electronics Repair", "Component-Level Diagnostics", "PCB Repair", "Appliance Servicing", "Circuit Analysis", "Schematic Reading"]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://nebnit.com/#localbusiness",
+      "name": "Nebraska Institute of Technology",
+      "url": "https://nebnit.com",
+      "email": "service@metrotv-audiotech.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Omaha", "addressRegion": "NE", "addressCountry": "US" },
+      "description": "Electronics training program in partnership with Metro TV and Appliance Service, Omaha, Nebraska."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nebnit.com/#website",
+      "url": "https://nebnit.com",
+      "name": "Nebraska Institute of Technology",
+      "publisher": { "@id": "https://nebnit.com/#organization" }
+    }
+  ]
+};
+---
+<Layout
+  title="Nebraska Institute of Technology — Electronics Training That Goes Deeper"
+  description="Nebraska Institute of Technology teaches you to understand electronics at the component level. Not just replacing parts — learning how they work, why they fail, and how to bring them back."
+  ogTitle="Nebraska Institute of Technology — Electronics Training That Goes Deeper"
+  ogDescription="Go beyond part swapping. Understand the electronics inside the machines the world depends on."
+  ogUrl="https://nebnit.com/"
+  activePage="home"
+  schema={homeSchema}
+>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="hero-badge">Now Enrolling</span>
+        <h1>Look Inside the Electronics <span class="highlight">the World Depends On</span></h1>
+        <p>Electronics are everywhere — in every home, every building, every system we rely on. NIT doesn't teach you to swap parts. We teach you to understand them. How a single component works in small, precise, delicate ways. How to see what others overlook.</p>
+        <div class="hero-actions">
+          <a href="/about" class="btn btn-primary btn-lg">Learn More</a>
+          <a href="/contact" class="btn btn-outline btn-lg">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Pillars -->
+    <section class="section" aria-labelledby="pillars-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="pillars-heading">Why NIT?</h2>
+          <p>We go deeper than anyone else.</p>
+        </div>
+        <div class="pillars-grid">
+          <div class="pillar-card animate-on-scroll">
+            <svg class="pillar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+            <h3>Component-Level Understanding</h3>
+            <p>We don't stop at the part number. You'll learn what's happening inside the component itself — the circuits, the tolerances, the failure modes that separate a real technician from a parts swapper.</p>
+          </div>
+          <div class="pillar-card animate-on-scroll">
+            <svg class="pillar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            <h3>Electronics Are Everywhere</h3>
+            <p>Every appliance in every home runs on electronic systems. Control boards, sensors, relays, switching circuits — these are the systems that keep modern life running, and they all need people who understand them.</p>
+          </div>
+          <div class="pillar-card animate-on-scroll">
+            <svg class="pillar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <h3>Repair, Don't Replace</h3>
+            <p>Anyone can order a new board. We teach you to read a schematic, trace a circuit, identify a failed component on a PCB, and fix what others throw away. That's a skill that never goes obsolete.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section section-alt" aria-labelledby="about-heading">
+      <div class="container about-content animate-on-scroll">
+        <h2 id="about-heading">Training That Goes Beyond the Surface</h2>
+        <p>Most training programs teach you to identify a bad part and order a replacement. NIT is different. We put the component under a magnifying glass — sometimes literally. A single control board in a washing machine contains dozens of discrete electronic components, each one operating within tight tolerances, each one with its own failure signature.</p>
+        <p>We show you how to read schematics, use diagnostic equipment, and understand why a capacitor failed — not just that it did. We partner with Metro TV and Appliance Service to give you access to real equipment, real failures, and real repair scenarios in a supervised lab environment.</p>
+        <a href="/about" class="btn btn-primary">About Our Training</a>
+      </div>
+    </section>
+  </main>
+</Layout>

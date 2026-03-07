@@ -1,0 +1,61 @@
+---
+interface AccordionItem {
+  id: number;
+  title: string;
+  content: string;
+}
+
+interface Props {
+  items: AccordionItem[];
+}
+
+const { items } = Astro.props;
+---
+<div class="accordion">
+  {items.map(item => (
+    <div class="accordion-item animate-on-scroll">
+      <button
+        class="accordion-trigger"
+        aria-expanded="false"
+        aria-controls={`panel-${item.id}`}
+        id={`trigger-${item.id}`}
+      >
+        <span>{item.title}</span>
+        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div
+        id={`panel-${item.id}`}
+        class="accordion-panel"
+        role="region"
+        aria-labelledby={`trigger-${item.id}`}
+        hidden
+        set:html={item.content}
+      />
+    </div>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll('.accordion').forEach(accordion => {
+    accordion.querySelectorAll<HTMLButtonElement>('.accordion-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const panelId = trigger.getAttribute('aria-controls')!;
+        const panel = document.getElementById(panelId) as HTMLElement;
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+        // Close all siblings
+        accordion.querySelectorAll<HTMLButtonElement>('.accordion-trigger').forEach(t => {
+          t.setAttribute('aria-expanded', 'false');
+          const p = document.getElementById(t.getAttribute('aria-controls')!) as HTMLElement;
+          if (p) p.hidden = true;
+        });
+
+        // Toggle clicked
+        if (!isOpen) {
+          trigger.setAttribute('aria-expanded', 'true');
+          panel.hidden = false;
+        }
+      });
+    });
+  });
+</script>

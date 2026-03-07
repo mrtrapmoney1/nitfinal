@@ -1,0 +1,118 @@
+---
+import { SEO } from 'astro-seo';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
+import '../styles/globals.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogUrl: string;
+  activePage: 'home' | 'about' | 'contact';
+  schema?: object;
+}
+
+const { title, description, ogTitle, ogDescription, ogUrl, activePage, schema } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <SEO
+    title={title}
+    description={description}
+    canonical={ogUrl}
+    openGraph={{
+      basic: {
+        title: ogTitle ?? title,
+        type: 'website',
+        image: 'https://nebnit.com/og-default.png',
+        url: ogUrl,
+      },
+      optional: {
+        description: ogDescription ?? description,
+        siteName: 'Nebraska Institute of Technology',
+      },
+    }}
+    twitter={{
+      card: 'summary_large_image',
+      title: ogTitle ?? title,
+      description: ogDescription ?? description,
+      image: 'https://nebnit.com/og-default.png',
+    }}
+  />
+  {schema && <SchemaOrg schema={schema} />}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <Header activePage={activePage} />
+  <slot />
+  <Footer />
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('[data-nav-toggle]') as HTMLButtonElement | null;
+    const mobileNav = document.getElementById('mobile-nav');
+    navToggle?.addEventListener('click', () => {
+      const isOpen = mobileNav!.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.classList.toggle('nav-open', isOpen);
+    });
+    mobileNav?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        navToggle?.setAttribute('aria-expanded', 'false');
+        navToggle?.classList.remove('nav-open');
+      });
+    });
+
+    // Scroll-aware header
+    const siteHeader = document.querySelector('.site-header');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          siteHeader?.classList.toggle('scrolled', window.scrollY > 10);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Scroll-to-top button
+    const scrollTopBtn = document.querySelector('.scroll-top');
+    let scrollTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        requestAnimationFrame(() => {
+          scrollTopBtn?.classList.toggle('visible', window.scrollY > 400);
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
+    scrollTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // GSAP ScrollTrigger
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray<HTMLElement>('.animate-on-scroll').forEach(el => {
+      gsap.fromTo(el, { opacity: 0, y: 40 }, {
+        opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+      });
+    });
+  </script>
+</body>
+</html>

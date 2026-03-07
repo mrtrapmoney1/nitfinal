@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Accordion from '../components/Accordion.astro';
+
+const faqItems = [
+  {
+    id: 1,
+    title: 'Do I need prior electronics experience to enroll?',
+    content: `<p>No. We start from the fundamentals — electrical safety, basic circuit concepts, and tool identification. The program builds progressively, so you develop real depth over time regardless of where you start.</p>`,
+  },
+  {
+    id: 2,
+    title: 'How is NIT different from other repair training?',
+    content: `<p>Most programs teach you to identify a faulty part and replace it. NIT goes deeper — we teach you to understand the electronics inside that part. You'll learn to read schematics, test individual components on a circuit board, and diagnose failures at the component level. That depth of understanding is what separates a technician from someone who just swaps parts.</p>`,
+  },
+  {
+    id: 3,
+    title: 'Do I need to bring my own tools?',
+    content: `<p>Yes, students are expected to bring their own tools to class. Repair parts and components are provided through Metro TV's parts department. A recommended tool list is provided upon enrollment.</p>`,
+  },
+  {
+    id: 4,
+    title: 'How do I get started?',
+    content: `<p>Send us a message using the form above or email us at <a href="mailto:service@metrotv-audiotech.com">service@metrotv-audiotech.com</a>. We'll walk you through the enrollment process, including the Safety Training and Waiver of Responsibility document required before beginning coursework.</p>`,
+  },
+];
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://nebnit.com/contact#faqpage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need prior electronics experience to enroll?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. We start from the fundamentals — electrical safety, basic circuit concepts, and tool identification. The program builds progressively, so you develop real depth over time regardless of where you start."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is NIT different from other repair training?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most programs teach you to identify a faulty part and replace it. NIT goes deeper — we teach you to understand the electronics inside that part. You'll learn to read schematics, test individual components on a circuit board, and diagnose failures at the component level. That depth of understanding is what separates a technician from someone who just swaps parts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to bring my own tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, students are expected to bring their own tools to class. Repair parts and components are provided through Metro TV's parts department. A recommended tool list is provided upon enrollment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get started?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Send us a message using the contact form or email us at service@metrotv-audiotech.com. We'll walk you through the enrollment process, including the Safety Training and Waiver of Responsibility document required before beginning coursework."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ContactPage",
+      "@id": "https://nebnit.com/contact#webpage",
+      "url": "https://nebnit.com/contact",
+      "name": "Contact — Nebraska Institute of Technology",
+      "isPartOf": { "@id": "https://nebnit.com/#website" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nebnit.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://nebnit.com/contact" }
+        ]
+      }
+    }
+  ]
+};
+---
+<Layout
+  title="Contact — Nebraska Institute of Technology"
+  description="Get in touch with Nebraska Institute of Technology. Ask about enrollment and starting your career in electronics."
+  ogTitle="Contact — Nebraska Institute of Technology"
+  ogDescription="Contact NIT to learn about enrollment and hands-on electronics training."
+  ogUrl="https://nebnit.com/contact"
+  activePage="contact"
+  schema={contactSchema}
+>
+  <main id="main">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>Have questions about enrollment or our training? We'd like to hear from you.</p>
+      </div>
+    </section>
+
+    <!-- Contact Form + Info -->
+    <section class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading" class="sr-only">Contact Form and Information</h2>
+        <div class="contact-grid">
+          <!-- Form -->
+          <ContactForm />
+
+          <!-- Contact Info -->
+          <div>
+            <div class="contact-info-card">
+              <h2>Get in Touch</h2>
+              <div class="contact-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <div>
+                  <h3>Email</h3>
+                  <a href="mailto:service@metrotv-audiotech.com">service@metrotv-audiotech.com</a>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <div>
+                  <h3>Website</h3>
+                  <a href="https://nebnit.com">nebnit.com</a>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <h3>Location</h3>
+                  <p>Omaha, Nebraska</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt faq-section" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="faq-heading">Frequently Asked Questions</h2>
+          <p>Common questions about enrollment and training at NIT.</p>
+        </div>
+        <Accordion items={faqItems} />
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,124 @@
+---
+---
+<div id="form-success" class="form-success" hidden>
+  <h3>Message Sent</h3>
+  <p>Thank you for reaching out. We'll get back to you as soon as possible.</p>
+</div>
+
+<div id="form-wrapper">
+  <form id="contact-form" novalidate>
+    <div class="form-group">
+      <label for="name">Name <span aria-hidden="true">*</span></label>
+      <input type="text" id="name" autocomplete="name" required />
+      <p class="error-msg" id="error-name" hidden></p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email <span aria-hidden="true">*</span></label>
+      <input type="email" id="email" autocomplete="email" required />
+      <p class="error-msg" id="error-email" hidden></p>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" autocomplete="tel" />
+      <p class="error-msg" id="error-phone" hidden></p>
+    </div>
+    <div class="form-group">
+      <label for="message">Message <span aria-hidden="true">*</span></label>
+      <textarea id="message" rows="5" required></textarea>
+      <p class="error-msg" id="error-message" hidden></p>
+    </div>
+    <p class="error-msg" id="error-form" hidden style="margin-bottom: 1rem;"></p>
+    <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const formWrapper = document.getElementById('form-wrapper')!;
+  const formSuccess = document.getElementById('form-success')!;
+
+  function getInput(id: string) {
+    return document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+  }
+
+  function showError(fieldId: string, msg: string) {
+    const el = document.getElementById(`error-${fieldId}`)!;
+    el.textContent = msg;
+    el.hidden = false;
+    getInput(fieldId).classList.add('invalid');
+  }
+
+  function clearErrors() {
+    ['name', 'email', 'phone', 'message', 'form'].forEach(id => {
+      const el = document.getElementById(`error-${id}`)!;
+      el.hidden = true;
+      el.textContent = '';
+      if (id !== 'form') getInput(id).classList.remove('invalid');
+    });
+  }
+
+  function validate(): boolean {
+    clearErrors();
+    let valid = true;
+
+    const name = (getInput('name') as HTMLInputElement).value.trim();
+    const email = (getInput('email') as HTMLInputElement).value.trim();
+    const phone = (getInput('phone') as HTMLInputElement).value.trim();
+    const message = (getInput('message') as HTMLTextAreaElement).value.trim();
+
+    if (!name) { showError('name', 'Name is required.'); valid = false; }
+
+    if (!email) {
+      showError('email', 'Email is required.'); valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('email', 'Please enter a valid email address.'); valid = false;
+    }
+
+    if (phone && !/^[\d\s\-\+\(\)]{7,}$/.test(phone)) {
+      showError('phone', 'Please enter a valid phone number.'); valid = false;
+    }
+
+    if (!message) { showError('message', 'Message is required.'); valid = false; }
+
+    return valid;
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch('https://formspree.io/f/xpwdjkwl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: (getInput('name') as HTMLInputElement).value.trim(),
+          email: (getInput('email') as HTMLInputElement).value.trim(),
+          phone: (getInput('phone') as HTMLInputElement).value.trim(),
+          message: (getInput('message') as HTMLTextAreaElement).value.trim(),
+        }),
+      });
+
+      if (response.ok) {
+        formWrapper.hidden = true;
+        formSuccess.hidden = false;
+      } else {
+        const errEl = document.getElementById('error-form')!;
+        errEl.textContent = 'Something went wrong. Please try again or email us directly.';
+        errEl.hidden = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    } catch {
+      const errEl = document.getElementById('error-form')!;
+      errEl.textContent = 'Network error. Please try again or email us directly.';
+      errEl.hidden = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
