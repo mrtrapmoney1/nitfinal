@@ -6,7 +6,7 @@ import SchemaOrg from '@/components/SchemaOrg';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'About — Nebraska Institute of Technology',
+  title: { absolute: 'About — Nebraska Institute of Technology' },
   description:
     'NIT teaches electronics at the component level. Understand control boards, circuit analysis, failure diagnostics, and the precise engineering inside every appliance.',
   alternates: { canonical: 'https://nebnit.com/about' },

@@ -5,7 +5,7 @@ import SchemaOrg from '@/components/SchemaOrg';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Appliance Repair Diagnostic Tools Guide — Nebraska Institute of Technology',
+  title: { absolute: 'Appliance Repair Diagnostic Tools Guide — Nebraska Institute of Technology' },
   description:
     'Master the diagnostic tools used in professional appliance repair — multimeters, clamp meters, ESR meters, and oscilloscopes. Know what to measure and how to interpret it.',
   alternates: { canonical: 'https://nebnit.com/diagnostic-tools' },

@@ -7,7 +7,7 @@ import SchemaOrg from '@/components/SchemaOrg';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Free DIY Appliance Repair Classes — Nebraska Institute of Technology',
+  title: { absolute: 'Free DIY Appliance Repair Classes — Nebraska Institute of Technology' },
   description:
     'Bring your broken appliance to our free hands-on repair classes in Lincoln and Omaha, Nebraska. NIT instructors guide you through diagnostics, component testing, and real repairs.',
   alternates: { canonical: 'https://nebnit.com/classes' },

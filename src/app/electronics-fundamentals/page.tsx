@@ -5,7 +5,7 @@ import SchemaOrg from '@/components/SchemaOrg';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Electronics Fundamentals for Appliance Repair — Nebraska Institute of Technology',
+  title: { absolute: 'Electronics Fundamentals for Appliance Repair — Nebraska Institute of Technology' },
   description:
     'Understand the core electronics concepts behind every home appliance — voltage, current, resistance, components, and how they fail. Foundation knowledge for real repair work.',
   alternates: { canonical: 'https://nebnit.com/electronics-fundamentals' },

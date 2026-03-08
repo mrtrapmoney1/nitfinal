@@ -5,7 +5,7 @@ import SchemaOrg from '@/components/SchemaOrg';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Common Appliance Problems & Troubleshooting Guide — Nebraska Institute of Technology',
+  title: { absolute: 'Common Appliance Problems & Troubleshooting Guide — Nebraska Institute of Technology' },
   description:
     'Diagnose washer, dryer, refrigerator, dishwasher, and range problems at the component level. Learn what\'s actually wrong and how to find it — from NIT\'s electronics training program.',
   alternates: { canonical: 'https://nebnit.com/appliance-troubleshooting' },

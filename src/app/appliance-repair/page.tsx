@@ -5,7 +5,7 @@ import SchemaOrg from '@/components/SchemaOrg';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Home Appliance Repair Guide — Nebraska Institute of Technology',
+  title: { absolute: 'Home Appliance Repair Guide — Nebraska Institute of Technology' },
   description:
     'Learn to diagnose and repair home appliances at the component level. Covers the 5 most common failures, diagnostic process, and hands-on repair techniques from NIT.',
   alternates: { canonical: 'https://nebnit.com/appliance-repair' },

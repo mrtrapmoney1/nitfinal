@@ -6,7 +6,7 @@ import SchemaOrg from '@/components/SchemaOrg';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Contact — Nebraska Institute of Technology',
+  title: { absolute: 'Contact — Nebraska Institute of Technology' },
   description: 'Get in touch with Nebraska Institute of Technology. Ask about enrollment and starting your career in electronics.',
   alternates: { canonical: 'https://nebnit.com/contact' },
   openGraph: {

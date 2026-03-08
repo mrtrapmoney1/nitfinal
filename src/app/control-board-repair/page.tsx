@@ -5,7 +5,7 @@ import SchemaOrg from '@/components/SchemaOrg';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Appliance Control Board Repair & Diagnostics — Nebraska Institute of Technology',
+  title: { absolute: 'Appliance Control Board Repair & Diagnostics — Nebraska Institute of Technology' },
   description:
     'Learn to diagnose appliance control boards at the component level. Visual inspection, multimeter testing, ESR meters, relay testing — NIT teaches diagnosis over replacement.',
   alternates: { canonical: 'https://nebnit.com/control-board-repair' },
